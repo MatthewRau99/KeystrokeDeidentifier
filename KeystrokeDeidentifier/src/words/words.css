@@ -1,0 +1,11 @@
+.word:hover {
+    background-color: lightgray;
+}
+
+.selected {
+    background-color: lightgrey;
+}
+
+.unselected {
+    background-color: white;
+}

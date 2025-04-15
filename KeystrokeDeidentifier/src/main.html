@@ -1,0 +1,34 @@
+<import from="./header/header"></import>
+<import from="./code/code"></import>
+<import from="./words/words"></import>
+<import from="./instances/instances"></import>
+
+<!-- Main Layout -->
+<div loading.class="data.fileLoading" class="flex">
+
+  <!-- Left -->
+  <div class="hidden p-4 h-screen md:block w-[100vw] 3xl:max-w-[700px]">
+    <words component.ref="words" class="block min-w-full h-max overflow-none border-solid border-2 border-gray-200 rounded-sm p-2"> </words>
+  </div>
+
+  <!-- Middle -->
+  <div class="hidden p-4 h-screen md:block w-[100vw] 3xl:max-w-[700px]">
+    <header component.ref="header" class="h-1/3"> </header>
+    <code class="block min-w-full h-2/3 overflow-none border-solid border-2 border-gray-200 rounded-sm p-2"> </code>
+  </div>
+
+  <!-- Right -->
+  <div class=" hidden p-4 h-screen md:block w-[100vw] 3xl:max-w-[700px]">
+    
+    <div class="h-full relative">
+      <instances class="block min-w-full h-full border-solid border-2 border-gray-200 rounded-sm p-2"></instances>
+    </div>
+    <div class="mt-auto bottom-0 right-8 m-2 absolute flex">
+      <p class="m-2 text-2xl"> ${savingText}</p>
+      <button class="m-2 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded text-lg" click.trigger="save()">Save</button>
+    </div>
+    
+  </div>
+</div>
+
+<p class="flex md:hidden h-full justify-center items-center text-2xl"> Device too small to display dashboard </p>

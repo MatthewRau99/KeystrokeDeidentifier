@@ -1,0 +1,13 @@
+<div class="h-full">
+    <div class="h-4 text-center font-semibold text-lg">${page} / ${pageCount}</div>
+    <div class="h-4/5">
+        <ul>
+            <li class="word" ref='wordsItems[$index]' repeat.for="word of pageWords" click.trigger="wordClick(word)">${word.word} (${word.instanceCount})</li>
+        </ul>
+    </div>
+    <div class="h-max text-center">
+        <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded text-lg" click.trigger="decrementPage()">&lt;-</button>
+        <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded text-lg" click.trigger="incrementPage()">-&gt;</button>
+    </div>
+    
+</div>

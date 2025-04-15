@@ -1,0 +1,21 @@
+<div class="h-full">
+    <p class="h-4 text-center font-semibold text-lg">Instances</p>
+    <div class="overflow-y-scroll h-full">
+        <ul>
+            <li repeat.for="subject of instances">
+                <p>${subject.subject}</p>
+                <ul>
+                    <li repeat.for="assignment of subject.assignments">
+                        <span class="whitespace-pre">&Tab;|---${assignment.assignment}</span>
+                        <ul>
+                            <li repeat.for="file of assignment.files">
+                                <span class="whitespace-pre task" ref='instanceItems[instanceItems.length]' click.trigger="clickInstance(subject, assignment, file)">&Tab;&Tab;|---${file.fileName} (${file.count})</span>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+    
+            </li>
+        </ul>
+    </div>
+</div>
