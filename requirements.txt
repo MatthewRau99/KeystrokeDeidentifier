@@ -1,5 +1,5 @@
+requests>=2.31.0
 pandas
-pickle
 fastapi
 alive-progress
 uvicorn

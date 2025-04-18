@@ -89,14 +89,13 @@ module.exports = function (env, { analyze }) {
             ]
         },
         plugins: [
-            new CopyWebpackPlugin({ patterns: [{ from: "static" }] }),
             new HtmlWebpackPlugin({ template: 'index.html', favicon: 'favicon.ico' }),
             new DefinePlugin({
                 'process.env':{
                     'output': JSON.stringify(process.env.OUTPUT),
                     'language': JSON.stringify(process.env.LANGUAGE)
                 }
-              }),
+            }),
             analyze && new BundleAnalyzerPlugin(),
         ].filter(p => p)
     }

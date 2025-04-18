@@ -7,24 +7,29 @@ from Modules.mask import mask
 import os
 import argparse
 
+def ensure_directories_exist():
+    """Create required directories if they don't exist."""
+    os.makedirs("Output", exist_ok=True)
+
 # uvicorn backend:app
 app = FastAPI()
 
+# Configure CORS
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["http://localhost:9000"],  # Frontend URL
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
+
 if __name__ == "__main__":
+    ensure_directories_exist()
+    
     parser = argparse.ArgumentParser()
     parser.add_argument('filename')
     parser.add_argument('-o', '--output')
     args = parser.parse_args()
-
-    origins = ["*"]
-
-    app.add_middleware(
-        CORSMiddleware,
-        allow_origins=origins,
-        allow_credentials=True,
-        allow_methods=["*"],
-        allow_headers=["*"],
-    )
 
     filename = args.filename
     outputFile = args.output if args.output is not None else f"out"
@@ -93,4 +98,4 @@ if __name__ == "__main__":
 
 
     #run server
-    uvicorn.run(app)
+    uvicorn.run(app, host="0.0.0.0", port=8000)
